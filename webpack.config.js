@@ -3,7 +3,17 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.(svg|png)$/,
+                test: /\.js$/,
+                exclude: /node_modules/,
+                use: [
+                    {
+                        loader: 'babel-loader'
+                    }
+                ]
+            },
+            // loading images
+            {
+                test: /\.(svg|png|jpg|jpeg|gif|ico)$/,
                 use: [
                     {
                         loader: 'file-loader',
@@ -12,7 +22,20 @@ module.exports = {
                             name: '[name]-[sha1:hash:7].[ext]'
                         }
                     }
-                    ]
+                    ],
+            },
+            // loading fonts
+            {
+                test: /\.(ttf|otf|eot|woff|woff2)$/,
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            outputPath: 'fonts',
+                            name: '[name].[ext]'
+                        }
+                    }
+                ],
             }
         ]
     }
