@@ -5,18 +5,20 @@ module.exports = {
             {
                 test: /\.js$/,
                 exclude: /node_modules/,
-                use: [
-                    {
-                        loader: 'babel-loader'
-                    }
-                ]
+                use: 'babel-loader'
             },
             // loading css
             {
                 test: /\.css$/,
+                use: ['style-loader', 'css-loader']
+            },
+            // loading sass/scss
+            {
+                test: /\.(s[ca]ss)$/,
                 use: [
                     { loader: 'style-loader' },
-                    { loader: 'css-loader' }
+                    { loader: 'css-loader' },
+                    { loader: 'sass-loader' }
                 ]
             },
             // loading images
