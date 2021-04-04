@@ -11,6 +11,14 @@ module.exports = {
                     }
                 ]
             },
+            // loading css
+            {
+                test: /\.css$/,
+                use: [
+                    { loader: 'style-loader' },
+                    { loader: 'css-loader' }
+                ]
+            },
             // loading images
             {
                 test: /\.(svg|png|jpg|jpeg|gif|ico)$/,
