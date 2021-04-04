@@ -53,6 +53,8 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
+            title: 'Hello World',
+            buildTime: new Date().toDateString(),
             template: 'public/index.html'
         })
     ]
